@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 class Choice extends Model
 {
@@ -14,4 +15,9 @@ class Choice extends Model
         'title',
         'question_id'
     ];
+
+    public function question(): BelongsTo
+    {
+        return $this->belongsTo(Question::class);
+    }
 }
