@@ -7,8 +7,13 @@
         <div class="mt-3">
             <input type="password" placeholder="Ваш пароль" class="form-control" v-model="password">
         </div>
-        <div class="mt-3">
-            <button @click="login" class="btn btn-success">Войти</button>
+        <div class="mt-3 d-flex gap-3">
+            <div>
+                <button @click="login" class="btn btn-success">Войти</button>
+            </div>
+            <div>
+                <router-link :to="{ name: 'register' }" class="btn btn-primary">Зарегистрироваться</router-link>
+            </div>
         </div>        
     </div>
 </template>
