@@ -6,6 +6,11 @@ const routes = [
         component: () => import('./../views/Pages/Main.vue'),
         name: 'home',
     },
+    {
+        path: '/login',
+        component: () => import('./../views/User/Login.vue'),
+        name: 'login',
+    },
 ]
 
 const router =  createRouter({
