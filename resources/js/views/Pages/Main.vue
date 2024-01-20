@@ -10,6 +10,10 @@
 <script>
 export default {
     name: 'Main',
+
+    mounted() {
+        this.$store.dispatch('testVuex')
+    }
 }
 </script>
 
