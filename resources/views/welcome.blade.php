@@ -4,12 +4,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    @vite('resources/js/app.js')
     <title>TEST PLATFORM</title>
 </head>
 <body>
     <div id="app" class="container mt-5">
         <app-component></app-component>
     </div>
-    @vite('resources/js/app.js')
 </body>
 </html>
