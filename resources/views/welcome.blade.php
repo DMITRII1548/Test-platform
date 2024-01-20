@@ -7,7 +7,7 @@
     <title>TEST PLATFORM</title>
 </head>
 <body>
-    <div id="app">
+    <div id="app" class="container mt-5">
         <app-component></app-component>
     </div>
     @vite('resources/js/app.js')
