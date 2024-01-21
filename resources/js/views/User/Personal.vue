@@ -1,5 +1,6 @@
 <template>
     <h2>Ваш аккаунт</h2>
+    <a @click.prevent="$store.dispatch('logout')" href="#">Выйти</a>
     <div class="mt-3">
         Добро пожаловать {{ name }}!
     </div>
@@ -9,22 +10,13 @@
 export default {
     name: 'Personal',
 
-    data() {
-        return {
-            name: ''
-        }
-    },
-
     mounted() {
-        this.getMe()
+        this.$store.dispatch('getMe')
     },
 
-    methods: {
-        getMe() {
-            axios.get('/api/user')
-                .then(res => {
-                    this.name = res.data.name
-                })
+    computed: {
+        name() {
+            return this.$store.getters.name
         }
     }
 }

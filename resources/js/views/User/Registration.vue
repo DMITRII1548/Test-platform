@@ -15,12 +15,12 @@
         </div>
         <div class="mt-3 d-flex gap-3">
             <div>
-                <button @click="register" class="btn btn-success">Зарегистрироваться</button>
+                <button @click="$store.dispatch('register', { name, email, password, password_confirmation })" class="btn btn-success">Зарегистрироваться</button>
             </div>
             <div>
                 <router-link :to="{ name: 'login' }" class="btn btn-primary">Войти</router-link>
             </div>
-        </div>        
+        </div>
     </div>
 </template>
 
@@ -36,22 +36,6 @@ export default {
             password_confirmation: ''
         }
     },
-
-    methods: {
-        register() {
-            axios.get('/sanctum/csrf-cookie').then(response => {
-                axios.post('/register', {
-                    name: this.name,
-                    email: this.email,
-                    password: this.password,
-                    password_confirmation: this.password_confirmation
-                })
-                    .then(res => {
-                        this.$router.push({ name: 'personal' })
-                    })
-            });
-        }
-    }
 }
 </script>
 

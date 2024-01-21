@@ -9,12 +9,12 @@
         </div>
         <div class="mt-3 d-flex gap-3">
             <div>
-                <button @click="login" class="btn btn-success">Войти</button>
+                <button @click="$store.dispatch('login', { email, password })" class="btn btn-success">Войти</button>
             </div>
             <div>
                 <router-link :to="{ name: 'register' }" class="btn btn-primary">Зарегистрироваться</router-link>
             </div>
-        </div>        
+        </div>
     </div>
 </template>
 
@@ -28,20 +28,6 @@ export default {
             password: ''
         }
     },
-
-    methods: {
-        login() {
-            axios.get('/sanctum/csrf-cookie').then(response => {
-                axios.post('/login', {
-                    email: this.email,
-                    password: this.password
-                })
-                    .then(res => {
-                        this.$router.push({ name: 'personal' })
-                    })
-            });
-        }  
-    }
 }
 </script>
 
