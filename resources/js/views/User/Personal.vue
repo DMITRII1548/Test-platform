@@ -20,7 +20,7 @@
             <tr v-for="test in tests">
                 <th scope="row">{{ test.id }}</th>
                 <td>{{ test.title }}</td>
-                <td><router-link to="#" class="btn btn-primary">Изменить</router-link></td>
+                <td><router-link :to="{ name: 'test.edit', params: {id: test.id}}" class="btn btn-primary">Изменить</router-link></td>
                 <td><router-link to="#" class="btn btn-primary">Запустить</router-link></td>
                 <td><button class="btn btn-danger">Удалить</button></td>
             </tr>

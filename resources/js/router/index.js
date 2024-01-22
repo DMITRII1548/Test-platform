@@ -1,11 +1,13 @@
 import { createRouter, createWebHistory } from 'vue-router';
 
 const routes = [
+    // Home
     {
         path: '/',
         component: () => import('./../views/Pages/Main.vue'),
         name: 'home',
     },
+    // Auth
     {
         path: '/login',
         component: () => import('./../views/User/Login.vue'),
@@ -20,7 +22,13 @@ const routes = [
         path: '/personal',
         component: () => import('./../views/User/Personal.vue'),
         name: 'personal',
-    }
+    },
+    // Test
+    {
+        path: '/tests/:id/edit',
+        component: () => import('./../views/Test/Edit.vue'),
+        name: 'test.edit'
+    },
 ]
 
 const router =  createRouter({

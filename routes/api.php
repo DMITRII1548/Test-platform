@@ -23,4 +23,5 @@ Route::middleware('auth:sanctum')
     ->prefix('tests')
     ->group(function () {
         Route::get('/', [TestController::class, 'index']);
+        Route::get('/{test}', [TestController::class, 'show']);
     });
