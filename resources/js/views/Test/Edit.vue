@@ -8,8 +8,8 @@
         <div class="d-grid gap-5 mt-4">
             <h2>Вопросы:</h2>
             <div class="d-grid gap-3" v-for="question in test.questions">
-                <h4>{{ question.number }}.</h4>
-                <input placeholder="Текст вопроса" v-model="question.title" class="form-control">
+                <h4>{{ question.number }}. <button @click="$store.dispatch('destroyQuestion', question.id)" class="btn btn-danger">Удалить вопрос</button></h4>
+                <input @keyup="$store.dispatch('updateQuestion', {id: question.id, title: question.title})" placeholder="Текст вопроса" v-model="question.title" class="form-control">
                 <div class="mt-3 d-grid gap-3">
                     <div class="d-flex align-items-center gap-3" v-for="choice in question.choices">
                         <input @click="$store.dispatch('updateChoiceIsTrue', choice)" type="checkbox" :checked="choice.is_true">
@@ -20,7 +20,7 @@
                 </div>
             </div>
             <div>
-                <button>+ Добавить вопрос</button>
+                <button @click="$store.dispatch('storeQuestion')" class="btn btn-primary">+ Добавить вопрос</button>
             </div>
         </div>
     </div>
@@ -32,10 +32,6 @@ export default {
 
     mounted() {
         this.$store.dispatch('getTest', this.$route.params.id)
-    },
-
-    methods: {
-
     },
 
     computed: {

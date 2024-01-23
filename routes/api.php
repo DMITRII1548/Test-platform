@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\ChoiceController;
+use App\Http\Controllers\QuestionController;
 use App\Http\Controllers\TestController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -30,6 +31,12 @@ Route::middleware('auth:sanctum')->group(function () {
         Route::post('/{question}', [ChoiceController::class, 'store']);
         Route::patch('/{choice}', [ChoiceController::class, 'update']);
         Route::delete('/{choice}', [ChoiceController::class, 'destroy']);
+    });
+
+    Route::prefix('questions')->group(function () {
+        Route::post('/{test}', [QuestionController::class, 'store']);
+        Route::patch('/{question}', [QuestionController::class, 'update']);
+        Route::delete('/{question}', [QuestionController::class, 'destroy']);
     });
 
 });
